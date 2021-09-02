@@ -1,0 +1,38 @@
+<div> 
+    <Title>Directives</Title>
+    1. Add a button which says 'Display Details'
+    <p>
+        <button 
+            class="btn btn-primary"
+            (click)="onDisplayDetails()">Display Details
+        </button>
+    </p>
+    2. Add a paragraph with any content of our choice <br>
+    3. Toggle the displaying of that paragraph with the button created in the first step<br>
+
+    <p *ngIf="buttonBool">
+        Paragraph <br>
+
+    </p>
+        4. Log all button clicks in an array and output that array below the seret paragraph<br>
+        5. Starting at the 5th log item, give all future log items a blue background (
+            via ngStyle) and white color (ngClass)<br>
+        <div 
+            *ngFor="let click of clickLog"
+            [ngStyle]="{backgroundColor: click >= 3 ? 'blue' : 'transparent'}"
+            [ngClass]="{'white-text': click >= 3}"
+            >{{ click }}
+        </div>
+        6. Get the index of ngFor
+        <div 
+            *ngFor="let click of clickLog; let i = index"
+            [ngStyle]="{backgroundColor: click === 1 ? 'green' : 'transparent'}"
+            [ngClass]="{'white-text': click === 1}"
+        >{{ click }}
+    </div>
+        
+
+
+    
+
+</div>

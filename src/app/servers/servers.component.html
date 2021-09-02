@@ -1,0 +1,62 @@
+<p>String Interpolation Example: <br> 
+    {{ 'server' }} with ID {{ serverId }} is {{ getServerStatus() }}</p>    
+
+<p>Property Binding Example: <br>
+    <button 
+        class="btn btn-primary"
+        [disabled]="!allowNewServer">Add Server: {{allowNewServer}}
+    </button>
+</p>
+
+<p>Event Binding Example: <br>
+    <button 
+    class="btn btn-primary"
+    (click)="onCreateServer()">Add Server
+    </button>
+    {{ serverCreationStatus}}
+</p>
+
+<p>2Way Event Binding Example: <br>
+    <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="serverName">  
+    <button 
+        class="btn btn-primary"
+        [disabled]="!allowNewServer"
+        (click)="onCreateServer2()">Add Server2
+    </button>
+    <br> {{ serverCreationStatus }}
+</p>
+
+<div>Directives Example: <br>
+    Structural Directive: Add/Remove elements from the DOM
+    <p *ngIf="serverCreated">
+            *ngIf -> Server was created, server name is {{ serverName}} 
+    </p>
+    <p *ngIf="serverCreated; else noServer">
+        *ngIf/else -> Server was created, server name is {{ serverName }}
+    </p>
+    <ng-template #noServer>
+        <p>ngIf/else -> No server was created!</p>
+    </ng-template>
+
+    <br><br>Attribute Directives: Change the element they're placed on. Property binding 
+    and directives aren't the same thing (even though they both use [] for notation)
+    <p [ngStyle]="{backgroundColor: getColor()}"><br> 
+        [ngStyle]=backgroundColor: getColor()
+    </p>  
+
+    <p 
+        [ngClass]="{serverCreated}"> <br> 
+        [ngClass]=serverCreated
+    </p>  
+
+    <p 
+        *ngFor="let server of servers">
+         
+    </p>
+
+
+
+</div>

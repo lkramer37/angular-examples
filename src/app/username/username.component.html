@@ -1,0 +1,18 @@
+<p>Data & Event Binding: Username<br>
+    1. Add a Input field which updates a property ('username') via Two-Way-Binding <br>
+    <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="username"><br><br>
+    2. Output the username property via String Interpolation (in a paragraph below the input) <br>
+        Username is: {{ username }} <br><br>
+    3. Add a button which may only be clicked if the username is NOT an empty string <br>
+    <button
+        class="btn btn-primary"
+        [disabled]="username === ''"
+        (click)="onResetUsername()">Reset Username
+    </button>
+</p>
+
+
+
